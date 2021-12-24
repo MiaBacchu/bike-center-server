@@ -11,7 +11,8 @@ const port=process.env.PORT || 5000;
 app.use(cors())
 app.use(express.json())
 app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*")
+    res.header({"Access-Control-Allow-Origin": "*"});
+    next();
   })
 
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.m0n59.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
